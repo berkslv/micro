@@ -21,11 +21,11 @@ Log.Logger = new LoggerConfiguration()
     .CreateLogger();
 
 
-builder.Services.AddDistributedMemoryCache();
-// builder.Services.AddStackExchangeRedisCache(opt =>
-// {
-//     opt.Configuration = builder.Configuration.GetConnectionString("Redis"); 
-// });
+builder.Services.AddStackExchangeRedisCache(opt =>
+{
+     opt.Configuration = builder.Configuration.GetConnectionString("Redis");
+     opt.InstanceName = "Micro.Basket";
+});
 
 builder.Services.AddTransient<IBasketService, BasketService>();
 builder.Services.AddTransient<ICurrentUserService, CurrentUserService>();
