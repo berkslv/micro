@@ -1,0 +1,50 @@
+version: ‘3.7'
+
+services:
+  micro-mongo:
+    container_name: micro-mongo
+    image: mongo:4.0.10
+    restart: always
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+    volumes:
+      - ../.docker/micro-mongo/data:/data/db
+    networks:
+      - micro-network
+      
+  micro-postgres:
+    container_name: micro-postgres
+    image: postgres:14-alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../.docker/micro-postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ../.docker/micro-postgres/data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=myStrongPassword123!
+    networks:
+      - micro-network
+  
+  micro-rabbitmq:
+    container_name: micro-rabbitmq
+    image: rabbitmq:3-management-alpine
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+    volumes:
+      - ../.docker/micro-rabbitmq/data:/var/lib/rabbitmq/
+      - ../.docker/micro-rabbitmq/data:/var/log/rabbitmq
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "SWQOKODSQALRPCLNMEQG"
+      RABBITMQ_DEFAULT_USER: "rabbitmq"
+      RABBITMQ_DEFAULT_PASS: "rabbitmq"
+      RABBITMQ_DEFAULT_VHOST: "/"
+    networks:
+      - micro-network
+
+
+networks:
+  micro-network:
+    driver: bridge
