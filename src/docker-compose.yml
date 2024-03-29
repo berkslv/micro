@@ -20,7 +20,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ../.docker/micro-postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ../docker/micro-postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
       - ../.docker/micro-postgres/data:/var/lib/postgresql/data
     environment:
       - POSTGRES_PASSWORD=myStrongPassword123!
@@ -56,6 +56,19 @@ services:
     networks:
       - micro-network
 
+  micro-identity:
+    container_name: micro-identity
+    image: micro-identity
+    build:
+      context: .
+      dockerfile: ../src/Identity/Dockerfile
+    ports:
+      - "8080:8080"
+    restart: on-failure
+    depends_on:
+      - micro-postgres
+    networks:
+      - micro-network
 
 networks:
   micro-network:
