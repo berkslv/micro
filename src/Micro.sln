@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Catalog.Application",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Basket", "Services\Basket\Micro.Basket\Micro.Basket.csproj", "{BABBBDBD-A5A7-4901-B30D-D01776F323CD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Micro.Notification", "Services\Notification\Micro.Notification\Micro.Notification.csproj", "{0EC7BED3-0554-4989-82FC-64F63A927023}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{BABBBDBD-A5A7-4901-B30D-D01776F323CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BABBBDBD-A5A7-4901-B30D-D01776F323CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BABBBDBD-A5A7-4901-B30D-D01776F323CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EC7BED3-0554-4989-82FC-64F63A927023}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC7BED3-0554-4989-82FC-64F63A927023}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC7BED3-0554-4989-82FC-64F63A927023}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC7BED3-0554-4989-82FC-64F63A927023}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
