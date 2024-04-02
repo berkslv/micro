@@ -1,0 +1,6 @@
+@Micro.ApiGateway_HostAddress = http://localhost:5261
+
+GET {{Micro.ApiGateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

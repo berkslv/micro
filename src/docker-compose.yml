@@ -61,7 +61,7 @@ services:
     image: micro-identity
     build:
       context: .
-      dockerfile: ../src/Identity/Dockerfile
+      dockerfile: ./Identity/Dockerfile
     ports:
       - "8080:8080"
     restart: on-failure
